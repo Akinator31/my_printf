@@ -7,7 +7,11 @@
 
 #ifndef MY_H
     #define MY_H
-    #define NB_FORMATTER 8
+<<<<<<< HEAD
+    #define NB_FORMATTER 9
+=======
+    #define NB_FORMATTER 9
+>>>>>>> dev
     #include <stdarg.h>
 
 void my_putchar(char c);
@@ -26,6 +30,8 @@ void print_pointer(va_list *list, int *nb_output_char);
 void print_octal(va_list *list, int *nb_output_char);
 void print_unsigned_int(va_list *list, int *nb_output_char);
 int get_digit(unsigned long ptr, long long power);
+void print_hexa_min(va_list *list, int *nb_output_char);
+void print_hexa_maj(va_list *list, int *nb_output_char);
 
 typedef struct format_specifier {
     char format_specifier;

@@ -18,7 +18,15 @@ static const format_specifier_t specifier_arr[] = {
     {'%', &print_percent},
     {'p', &print_pointer},
     {'o', &print_octal},
-    {'u', &print_unsigned_int}
+<<<<<<< HEAD
+    {'u', &print_unsigned_int},
+    {'x', &print_hexa_min},
+    {'X', &print_hexa_maj}
+=======
+    {'u', &print_unsigned_int},
+    {'x', &print_hexa_min},
+    {'X', &print_hexa_maj}
+>>>>>>> dev
 };
 
 void compute(int *nb_output_char, const char *format, int index, va_list *list)
