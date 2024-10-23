@@ -49,6 +49,8 @@ clean:
 	rm -f tests/*.gcno
 	rm -f lib/my/*.gcda
 	rm -f lib/my/*.gcno
+	rm -f *.gcda
+	rm -f *.gcno
 
 fclean: clean
 
