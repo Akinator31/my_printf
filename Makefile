@@ -37,9 +37,15 @@ $(NAME): $(OBJ)
 test: $(NAME)
 	gcc -o prog main.c -L. -lmy
 
-test_run: CFLAGS += --coverage
-test_run: $(NAME)
-        gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
+test_gcovr: CFLAGS += --coverage
+test_gcovr: $(NAME)
+	gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
+
+test_run: unit_tests
+	./unit_tests
+
+unit_tests: fclean $(NAME)
+	gcc -o unit_tests $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
 
 show_test: clean test_run
 	./unit
@@ -62,7 +68,8 @@ clean:
 	rm -f lib/my/*.gcno
 	rm -f *.gcda
 	rm -f *.gcno
+	rm -f unit_tests
 
 fclean: clean
 
-re: fclean all
+re: fclean $(NAME)
