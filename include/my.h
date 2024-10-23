@@ -16,7 +16,8 @@ int my_putstr(char const *str);
 int my_strlen(char const *str);
 char *my_strcpy(char *dest, char const *src);
 int my_printf(const char *format, ...);
-void compute(int *nb_output_char, const char *format, int index, va_list *list);
+void compute(int *nb_output_char,
+    const char *format, int index, va_list *list);
 void print_percent(va_list *list, int *nb_output_char);
 void print_char(va_list *list, int *nb_output_char);
 void print_string(va_list *list, int *nb_output_char);

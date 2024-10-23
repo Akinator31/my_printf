@@ -41,15 +41,16 @@ $(NAME): $(OBJ)
 test: $(NAME)
 	gcc -o prog main.c -L. -lmy
 
-test_gcovr: CFLAGS += --coverage
+test_gcovr: CFLAGS += --coverage -L. -lmy -lgcov -lcriterion
 test_gcovr: $(NAME)
-	gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
+	gcc -o unit $(OBJ) tests/test_my_printf.c $(CFLAGS)
 
 test_run: unit_tests
 	./unit_tests
 
+unit_tests: CFLAGS += --coverage -L. -lmy -lgcov -lcriterion
 unit_tests: fclean $(NAME)
-	gcc -o unit_tests $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
+	gcc -o unit_tests $(OBJ) tests/test_my_printf.c $(CFLAGS)
 
 show_test: clean test_gcovr
 	./unit
