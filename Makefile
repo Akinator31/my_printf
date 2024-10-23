@@ -47,7 +47,7 @@ test_run: unit_tests
 unit_tests: fclean $(NAME)
 	gcc -o unit_tests $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
 
-show_test: clean test_run
+show_test: clean test_gcovr
 	./unit
 	gcovr -r . --html --html-details -o coverage/index.html
 	firefox coverage/index.html
