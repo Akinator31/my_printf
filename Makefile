@@ -41,7 +41,7 @@ test_run: CFLAGS += --coverage
 test_run: $(NAME)
 	gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
 
-show_test: test_run
+show_test: clean test_run
 	./unit
 	gcovr -r . --html --html-details -o coverage/index.html
 	firefox coverage/index.html
