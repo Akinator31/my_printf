@@ -16,7 +16,8 @@ static const format_specifier_t specifier_arr[] = {
     {'s', &print_string},
     {'c', &print_char},
     {'%', &print_percent},
-    {'p', &print_pointer}
+    {'p', &print_pointer},
+    {'o', &print_octal}
 };
 
 void compute(int *nb_output_char, const char *format, int index, va_list *list)

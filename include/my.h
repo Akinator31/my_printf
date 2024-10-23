@@ -7,7 +7,7 @@
 
 #ifndef MY_H
     #define MY_H
-    #define NB_FORMATTER 6
+    #define NB_FORMATTER 7
     #include <stdarg.h>
 
 void my_putchar(char c);
@@ -22,6 +22,7 @@ void print_char(va_list *list, int *nb_output_char);
 void print_string(va_list *list, int *nb_output_char);
 void print_dec_oct_hex_integer(va_list *list, int *nb_output_char);
 void print_pointer(va_list *list, int *nb_output_char);
+void print_octal(va_list *list, int *nb_output_char);
 
 typedef struct format_specifier {
     char format_specifier;

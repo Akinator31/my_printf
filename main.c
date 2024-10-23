@@ -2,6 +2,6 @@
 
 int main(void)
 {
-    int test = 45;
-    my_printf("Salut voici un pointeur %p vers %d\n", &test, test);
+    int test = 610;
+    my_printf("%o\n", test);
 }

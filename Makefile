@@ -16,6 +16,8 @@ SRC =  lib/my/my_put_nbr.c \
        src/flags/print_char.c \
        src/flags/print_percent.c \
        src/flags/print_pointer.c \
+       src/flags/print_octal.c \
+
 
 OBJ = $(SRC:.c=.o)
 
