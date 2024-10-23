@@ -21,6 +21,12 @@ SRC =  lib/my/my_put_nbr.c \
 
 OBJ = $(SRC:.c=.o)
 
+CLEAN_DIR = src \
+	src\flags \
+	include \
+	. \
+	lib/my
+
 NAME = libmy.a
 
 all: $(NAME)
