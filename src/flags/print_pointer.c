@@ -19,16 +19,6 @@ long long calc_pow_16(unsigned long ptr)
     return power /= 16;
 }
 
-int get_digit(unsigned long ptr, long long power)
-{
-    long long result = 0;
-
-    while (ptr >= (power * result)) {
-        result++;
-    }
-    return result - 1;
-}
-
 void print_pointer(va_list *list, int *nb_output_char)
 {
     unsigned long pointer = (unsigned long)va_arg(*list, void *);

@@ -23,6 +23,7 @@ void print_string(va_list *list, int *nb_output_char);
 void print_dec_oct_hex_integer(va_list *list, int *nb_output_char);
 void print_pointer(va_list *list, int *nb_output_char);
 void print_octal(va_list *list, int *nb_output_char);
+int get_digit(unsigned long ptr, long long power);
 
 typedef struct format_specifier {
     char format_specifier;

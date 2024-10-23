@@ -10,6 +10,7 @@ SRC =  lib/my/my_put_nbr.c \
        lib/my/my_putstr.c \
        lib/my/my_strcpy.c \
        lib/my/my_strlen.c \
+       lib/my/get_digit.c \
        my_printf.c \
        src/flags/print_dec_oct_hex_integer.c \
        src/flags/print_string.c \
@@ -17,7 +18,6 @@ SRC =  lib/my/my_put_nbr.c \
        src/flags/print_percent.c \
        src/flags/print_pointer.c \
        src/flags/print_octal.c \
-
 
 OBJ = $(SRC:.c=.o)
 
