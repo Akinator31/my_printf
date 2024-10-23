@@ -1,0 +1,6 @@
+unit
+prog
+*.gcda
+*.gcno
+libmy.a
+*.o
