@@ -7,11 +7,6 @@
 
 #ifndef MY_H
     #define MY_H
-<<<<<<< HEAD
-    #define NB_FORMATTER 9
-=======
-    #define NB_FORMATTER 9
->>>>>>> dev
     #include <stdarg.h>
 
 void my_putchar(char c);

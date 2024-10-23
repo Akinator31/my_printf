@@ -18,23 +18,17 @@ static const format_specifier_t specifier_arr[] = {
     {'%', &print_percent},
     {'p', &print_pointer},
     {'o', &print_octal},
-<<<<<<< HEAD
     {'u', &print_unsigned_int},
     {'x', &print_hexa_min},
-    {'X', &print_hexa_maj}
-=======
-    {'u', &print_unsigned_int},
-    {'x', &print_hexa_min},
-    {'X', &print_hexa_maj}
->>>>>>> dev
+    {'X', &print_hexa_maj},
+    {'?', NULL}
 };
 
 void compute(int *nb_output_char, const char *format, int index, va_list *list)
 {
     int i;
-    int format_number = 6;
 
-    for (i = 0; i < NB_FORMATTER; i++) {
+    for (i = 0; specifier_arr[i].f != NULL; i++) {
         if (format[index + 1] == specifier_arr[i].format_specifier) {
             (*specifier_arr[i].f)(list, nb_output_char);
         }

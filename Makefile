@@ -19,15 +19,9 @@ SRC =  lib/my/my_put_nbr.c \
        src/flags/print_percent.c \
        src/flags/print_pointer.c \
        src/flags/print_octal.c \
-<<<<<<< HEAD
-       src/flags/print_unsigned_int.c \
-       src/flags/print_hexa_min.c \                                                                                                                                                          
-       src/flags/print_hexa_maj.c \
-=======
        src/flags/print_unsigned_int.c \
        src/flags/print_hexa_min.c \
        src/flags/print_hexa_maj.c \
->>>>>>> dev
 
 OBJ = $(SRC:.c=.o)
 
