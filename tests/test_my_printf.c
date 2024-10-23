@@ -90,3 +90,9 @@ Test(my_printf, octal, .init = redirect_all_std)
     my_printf("Test convertion en octal : %o\n", dec);
     cr_assert_stdout_eq_str("Test convertion en octal : 1142\n");
 }
+
+Test(my_printf, unsigned_int_in_a_string, .init = redirect_all_std)
+{
+    my_printf("Test affichage unsigned int %u\n", 45689);
+    cr_assert_stdout_eq_str("Test affichage unsigned int 45689\n");
+}

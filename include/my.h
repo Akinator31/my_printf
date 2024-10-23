@@ -7,11 +7,12 @@
 
 #ifndef MY_H
     #define MY_H
-    #define NB_FORMATTER 7
+    #define NB_FORMATTER 8
     #include <stdarg.h>
 
 void my_putchar(char c);
 int my_put_nbr(int nb);
+int my_put_unsigned_nbr(unsigned int nb);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
 char *my_strcpy(char *dest, char const *src);
@@ -23,6 +24,7 @@ void print_string(va_list *list, int *nb_output_char);
 void print_dec_oct_hex_integer(va_list *list, int *nb_output_char);
 void print_pointer(va_list *list, int *nb_output_char);
 void print_octal(va_list *list, int *nb_output_char);
+void print_unsigned_int(va_list *list, int *nb_output_char);
 int get_digit(unsigned long ptr, long long power);
 
 typedef struct format_specifier {

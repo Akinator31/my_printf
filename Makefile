@@ -6,6 +6,7 @@
 ##
 
 SRC =  lib/my/my_put_nbr.c \
+       lib/my/my_put_unsigned_nbr.c \
        lib/my/my_putchar.c \
        lib/my/my_putstr.c \
        lib/my/my_strcpy.c \
@@ -18,6 +19,7 @@ SRC =  lib/my/my_put_nbr.c \
        src/flags/print_percent.c \
        src/flags/print_pointer.c \
        src/flags/print_octal.c \
+       src/flags/print_unsigned_int.c
 
 OBJ = $(SRC:.c=.o)
 
