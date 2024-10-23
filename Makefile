@@ -54,6 +54,11 @@ clean:
 	rm -f lib/my/*.gcno
 	rm -f *.gcda
 	rm -f *.gcno
+	mr_clean
+	mr_clean src
+	mr_clean src/flags
+	mr_clean include
+	mr_clean lib/my
 
 fclean: clean
 
