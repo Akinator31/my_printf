@@ -56,8 +56,13 @@ $(NAME): $(OBJ)
 test: $(NAME)
 	gcc -o prog main.c -L. -lmy
 
+test_run: CFLAGS += --coverage
 test_run: $(NAME)
-	gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy --coverage -lcriterion
+	gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
+
+show_test:
+	gcovr -r . --html --html-details -o coverage/index.html
+	firefox coverage/index.html
 
 clean:
 	rm -f lib/my/*.o
@@ -67,6 +72,10 @@ clean:
 	rm -f libmy.a
 	rm -f unit-*
 	rm -f unit
+	rm -f tests/*.gcda
+	rm -f tests/*.gcno
+	rm -f lib/my/*.gcda
+	rm -f lib/my/*.gcno
 
 fclean: clean
 

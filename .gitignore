@@ -4,3 +4,4 @@ prog
 *.gcno
 libmy.a
 *.o
+coverage
