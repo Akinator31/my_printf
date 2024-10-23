@@ -19,6 +19,12 @@ SRC =  lib/my/my_put_nbr.c \
 
 OBJ = $(SRC:.c=.o)
 
+CLEAN_DIR = src \
+	src\flags \
+	include \
+	. \
+	lib/my
+
 NAME = libmy.a
 
 all: $(NAME)
@@ -54,11 +60,6 @@ clean:
 	rm -f lib/my/*.gcno
 	rm -f *.gcda
 	rm -f *.gcno
-	mr_clean
-	mr_clean src
-	mr_clean src/flags
-	mr_clean include
-	mr_clean lib/my
 
 fclean: clean
 
