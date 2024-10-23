@@ -5,3 +5,4 @@ prog
 libmy.a
 *.o
 coverage
+main.c
