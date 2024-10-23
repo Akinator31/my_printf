@@ -33,13 +33,16 @@ test_run: CFLAGS += --coverage
 test_run: $(NAME)
 	gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
 
-show_test:
+show_test: test_run
+	./unit
 	gcovr -r . --html --html-details -o coverage/index.html
 	firefox coverage/index.html
 
 clean:
 	rm -f lib/my/*.o
 	rm -f src/flags/*.o
+	rm -f src/flags/*.gcda
+	rm -f src/flags/*.gcno
 	rm -f *.o
 	rm -f prog
 	rm -f libmy.a
