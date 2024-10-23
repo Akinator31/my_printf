@@ -12,11 +12,12 @@
 long long calc_pow_8(int ptr)
 {
     long long power = 1;
-    
+
     while (power < ptr) {
         power *= 8;
     }
-    return power /= 8;
+    power /= 8;
+    return power;
 }
 
 void print_octal(va_list *list, int *nb_output_char)
@@ -28,9 +29,9 @@ void print_octal(va_list *list, int *nb_output_char)
 
     while (power_8 > 0) {
         digit = get_digit(pointer, power_8);
-	write(1, &base[digit], 1);
+        write(1, &base[digit], 1);
         pointer -= power_8 * digit;
-	power_8 /= 8;
-	*nb_output_char++;
+        power_8 /= 8;
+        *nb_output_char++;
     }
 }

@@ -83,3 +83,10 @@ Test(my_printf, pointer_in_a_string, .init = redirect_all_std)
     my_printf("Voici un pointeur %p qui stocke l'adresse de cette variable %d\n", (void *)0x11111111, test);
     cr_assert_stdout_eq_str("Voici un pointeur 0x11111111 qui stocke l'adresse de cette variable 45\n");
 }
+
+Test(my_printf, octal, .init = redirect_all_std)
+{
+    int dec = 610;
+    my_printf("Test convertion en octal : %o\n", dec);
+    cr_assert_stdout_eq_str("Test convertion en octal : 1142\n");
+}

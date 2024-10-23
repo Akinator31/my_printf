@@ -39,7 +39,7 @@ test: $(NAME)
 
 test_run: CFLAGS += --coverage
 test_run: $(NAME)
-	gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
+        gcc -o unit $(OBJ) tests/test_my_printf.c -L. -lmy -lgcov -lcriterion $(CFLAGS)
 
 show_test: clean test_run
 	./unit
