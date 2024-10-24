@@ -68,7 +68,6 @@ clean:
 	rm -f src/flags/*.gcno
 	rm -f *.o
 	rm -f prog
-	rm -f libmy.a
 	rm -f unit-*
 	rm -f unit
 	rm -f tests/*.gcda
