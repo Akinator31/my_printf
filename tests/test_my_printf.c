@@ -115,3 +115,42 @@ Test(my_printf, nb_of_char_before_the_n_flag)
     my_printf("Et bonjour voici un test qui compte le nombre de char avant le %n\n", &result);
     cr_assert_eq(result, 63);
 }
+
+Test(my_printf, float_min_in_a_string, .init = redirect_all_std)
+{
+    my_printf("Test affichage float min %f\n", 456.89);
+    cr_assert_stdout_eq_str("Test affichage float min 456.890015\n");
+}
+
+Test(my_printf, float_maj_in_a_string, .init = redirect_all_std)
+{
+    my_printf("Test affichage float min %F\n", 456.89);
+    cr_assert_stdout_eq_str("Test affichage float min 456.890015\n");
+}
+
+Test(my_printf, float_neg_in_a_string, .init = redirect_all_std)
+{
+    my_printf("Test affichage float min %f\n", -456.89);
+    cr_assert_stdout_eq_str("Test affichage float min -456.890015\n");
+}
+
+Test(my_printf, float_INF_in_a_string, .init = redirect_all_std)
+{
+    double test = 1.0 / 0.0;
+    my_printf("Test affichage %F\n", test);
+    cr_assert_stdout_eq_str("Test affichage INF\n");
+}
+
+Test(my_printf, float_inf_in_a_string, .init = redirect_all_std)
+{
+    double test = 1.0 / 0.0;
+    my_printf("Test affichage %f\n", test);
+    cr_assert_stdout_eq_str("Test affichage inf\n");
+}
+/*
+Test(my_printf, float_round_min, .init = redirect_all_std)
+{
+    my_printf("Test affichage %f\n", 34.789744);
+    cr_assert_stdout_eq_str("Test affichage 34.789744\n");
+}
+*/

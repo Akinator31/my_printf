@@ -14,7 +14,7 @@
 
 void my_putchar(char c);
 int my_put_nbr(int nb);
-int my_put_float(float nb);
+int my_put_float(float nb, int is_maj);
 int my_put_unsigned_nbr(unsigned int nb);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
@@ -33,7 +33,8 @@ int get_digit(unsigned long ptr, long long power);
 void print_hexa_min(va_list *list, int *nb_output_char);
 void print_hexa_maj(va_list *list, int *nb_output_char);
 void get_nb_of_char(va_list *list, int *nb_output_char);
-void print_float(va_list *list, int *nb_output_char);
+void print_float_min(va_list *list, int *nb_output_char);
+void print_float_maj(va_list *list, int *nb_output_char);
 
 typedef struct format_specifier {
     char format_specifier;

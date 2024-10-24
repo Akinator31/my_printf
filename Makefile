@@ -24,7 +24,8 @@ SRC =  lib/my/my_put_nbr.c \
        src/flags/print_hexa_min.c \
        src/flags/print_hexa_maj.c \
        src/flags/get_nb_of_char.c \
-       src/flags/print_float.c \
+       src/flags/print_float_min.c \
+       src/flags/print_float_maj.c \
 
 OBJ = $(SRC:.c=.o)
 

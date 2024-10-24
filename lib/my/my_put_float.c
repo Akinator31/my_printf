@@ -14,15 +14,25 @@ void negative_number(float *nb, int *nb_output_char)
     *nb_output_char++;
 }
 
-int check_infinity_nan(float nb)
+int check_infinity_nan(float nb, int is_maj)
 {
     if (nb == IS_INFINITY) {
-        my_putstr("inf");
-        return 1;
+	if (is_maj == 1) {
+	    my_putstr("INF");
+	    return 1;
+	} else {
+	    my_putstr("inf");
+	    return 1;
+	}
     }
     if (nb == IS_NAN) {
-        my_putstr("nan");
-        return 1;
+        if (is_maj == 1) {
+            my_putstr("NAN");
+            return 1;
+	} else {
+            my_putstr("nan");
+            return 1;
+	}
     }
     return 0;
 }
@@ -42,14 +52,14 @@ void print_floating_part(int floating_part, double temp, int *nb_output_char)
     *nb_output_char += my_put_nbr(floating_part);
 }
 
-int my_put_float(float nb)
+int my_put_float(float nb, int is_maj)
 {
     int whole_part;
     int floating_part;
     double temp;
     int nb_output_char = 0;
 
-    if (check_infinity_nan(nb) == 1)
+    if (check_infinity_nan(nb, is_maj) == 1)
         return 0;
     if (nb < 0)
         negative_number(&nb, &nb_output_char);
