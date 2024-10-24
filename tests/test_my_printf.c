@@ -108,3 +108,10 @@ Test(my_printf, hexa_maj_in_string, .init = redirect_all_std)
     my_printf("%X", 1515);
     cr_assert_stdout_eq_str("5EB");
 }
+
+Test(my_printf, nb_of_char_before_the_n_flag)
+{
+    int result = 0;
+    my_printf("Et bonjour voici un test qui compte le nombre de char avant le %n\n", &result);
+    cr_assert_eq(result, 63);
+}

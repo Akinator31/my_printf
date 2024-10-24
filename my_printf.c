@@ -21,6 +21,7 @@ static const format_specifier_t specifier_arr[] = {
     {'u', &print_unsigned_int},
     {'x', &print_hexa_min},
     {'X', &print_hexa_maj},
+    {'n', &get_nb_of_char},
     {'?', NULL}
 };
 
