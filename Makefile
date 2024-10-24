@@ -67,16 +67,13 @@ clean:
 	rm -f src/flags/*.gcda
 	rm -f src/flags/*.gcno
 	rm -f *.o
-	rm -f prog
 	rm -f unit-*
-	rm -f unit
 	rm -f tests/*.gcda
 	rm -f tests/*.gcno
 	rm -f lib/my/*.gcda
 	rm -f lib/my/*.gcno
 	rm -f *.gcda
 	rm -f *.gcno
-	rm -f unit_tests
 
 fclean: clean
 
