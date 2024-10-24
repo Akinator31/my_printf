@@ -10,4 +10,5 @@
 void print_percent(va_list *list, int *nb_output_char)
 {
     my_putchar('%');
+    *nb_output_char++;
 }

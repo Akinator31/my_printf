@@ -11,5 +11,5 @@ void print_string(va_list *list, int *nb_output_char)
 {
     char *str = (char *)va_arg(*list, char *);
 
-    my_putstr(str);
+    *nb_output_char += my_putstr(str);
 }
