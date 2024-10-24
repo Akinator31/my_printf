@@ -8,9 +8,13 @@
 #ifndef MY_H
     #define MY_H
     #include <stdarg.h>
+    #define IS_INFINITY __builtin_inff()
+    #define IS_NAN __builtin_nan("")
+    #define NEG_POS_ZERO(x) __builtin_signbit (x)
 
 void my_putchar(char c);
 int my_put_nbr(int nb);
+int my_put_float(float nb);
 int my_put_unsigned_nbr(unsigned int nb);
 int my_putstr(char const *str);
 int my_strlen(char const *str);

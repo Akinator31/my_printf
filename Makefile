@@ -6,6 +6,7 @@
 ##
 
 SRC =  lib/my/my_put_nbr.c \
+       lib/my/my_put_float.c \
        lib/my/my_put_unsigned_nbr.c \
        lib/my/my_putchar.c \
        lib/my/my_putstr.c \
