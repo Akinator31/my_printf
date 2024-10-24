@@ -33,6 +33,7 @@ int get_digit(unsigned long ptr, long long power);
 void print_hexa_min(va_list *list, int *nb_output_char);
 void print_hexa_maj(va_list *list, int *nb_output_char);
 void get_nb_of_char(va_list *list, int *nb_output_char);
+void print_float(va_list *list, int *nb_output_char);
 
 typedef struct format_specifier {
     char format_specifier;
