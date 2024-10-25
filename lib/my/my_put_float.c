@@ -17,24 +17,31 @@ void negative_number(float *nb, int *nb_output_char)
 int check_infinity_nan(float nb, int is_maj)
 {
     if (nb == IS_INFINITY) {
-	if (is_maj == 1) {
-	    my_putstr("INF");
-	    return 1;
-	} else {
-	    my_putstr("inf");
-	    return 1;
-	}
+        if (is_maj == 1) {
+            my_putstr("INF");
+            return 1;
+        } else {
+            my_putstr("inf");
+            return 1;
+        }
     }
     if (nb == IS_NAN) {
         if (is_maj == 1) {
             my_putstr("NAN");
             return 1;
-	} else {
+        } else {
             my_putstr("nan");
             return 1;
-	}
+        }
     }
     return 0;
+}
+
+void print_float_particular_case(float nb, float temp)
+{
+    my_put_nbr((int)nb);
+    my_putchar('.');
+    my_put_nbr((int)temp % 1000000);
 }
 
 void print_floating_part(int floating_part, double temp, int *nb_output_char)
@@ -47,9 +54,22 @@ void print_floating_part(int floating_part, double temp, int *nb_output_char)
     if ((floating_part % 10) >= 5) {
         floating_part /= 10;
         floating_part += 1;
-    } else
+    } else {
         floating_part /= 10;
+        floating_part -= 1;
+    }
     *nb_output_char += my_put_nbr(floating_part);
+}
+
+static int check_special_case(float nb, int is_maj, float temp)
+{
+    if (check_infinity_nan(nb, is_maj) == 1)
+        return 1;
+    temp = nb * 1000000;
+    if (((int)temp % 10) == 0) {
+        print_float_particular_case(nb, temp);
+        return 1;
+    }
 }
 
 int my_put_float(float nb, int is_maj)
@@ -59,7 +79,7 @@ int my_put_float(float nb, int is_maj)
     double temp;
     int nb_output_char = 0;
 
-    if (check_infinity_nan(nb, is_maj) == 1)
+    if (check_special_case(nb, is_maj, temp) == 1)
         return 0;
     if (nb < 0)
         negative_number(&nb, &nb_output_char);
