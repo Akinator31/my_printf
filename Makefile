@@ -49,7 +49,7 @@ test_gcovr: CFLAGS += --coverage -L. -lmy -lgcov -lcriterion
 test_gcovr: $(NAME)
 	gcc -o unit $(OBJ) tests/test_my_printf.c $(CFLAGS)
 
-test_run: unit_tests
+tests_run: unit_tests
 	./unit_tests
 
 unit_tests: CFLAGS += --coverage -L. -lmy -lgcov -lcriterion
