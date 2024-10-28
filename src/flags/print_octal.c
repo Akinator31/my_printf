@@ -9,9 +9,9 @@
 #include <unistd.h>
 #include "../../include/my.h"
 
-long long calc_pow_8(int ptr)
+long calc_pow_8(long ptr)
 {
-    long long power = 1;
+    long power = 1;
 
     while (power < ptr) {
         power *= 8;
@@ -22,9 +22,9 @@ long long calc_pow_8(int ptr)
 
 void print_octal(va_list *list, int *nb_output_char)
 {
-    int pointer = (int)va_arg(*list, int);
-    long long power_8 = calc_pow_8(pointer);
-    long long digit = 0;
+    long pointer = va_arg(*list, long);
+    long power_8 = calc_pow_8(pointer);
+    long digit = 0;
     char base[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
 
     while (power_8 > 0) {

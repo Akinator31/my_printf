@@ -25,7 +25,7 @@ void print_dec_oct_hex_integer(va_list *list, int *nb_output_char);
 void print_pointer(va_list *list, int *nb_output_char);
 void print_octal(va_list *list, int *nb_output_char);
 void print_unsigned_int(va_list *list, int *nb_output_char);
-int get_digit(unsigned long ptr, long long power);
+long get_digit(long ptr, long power);
 void print_hexa_min(va_list *list, int *nb_output_char);
 void print_hexa_maj(va_list *list, int *nb_output_char);
 void get_nb_of_char(va_list *list, int *nb_output_char);
