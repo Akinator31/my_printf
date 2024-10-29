@@ -115,3 +115,53 @@ Test(my_printf, nb_of_char_before_the_n_flag)
     my_printf("Et bonjour voici un test qui compte le nombre de char avant le %n\n", &result);
     cr_assert_eq(result, 63);
 }
+
+Test(my_printf, scientific_write_pos_zero, .init = redirect_all_std)
+{
+    my_printf("%e\n", 0.215487);
+    cr_assert_stdout_eq_str("2.154870e-01\n");
+}
+
+Test(my_printf, scientific_write_neg_zero, .init = redirect_all_std)
+{
+    my_printf("%e\n", -0.215487);
+    cr_assert_stdout_eq_str("-2.154870e-01\n");
+}
+
+Test(my_printf, scientific_write_pos_upper_zero, .init = redirect_all_std)
+{
+    my_printf("%e\n", 21.215487);
+    cr_assert_stdout_eq_str("2.121549e+01\n");
+}
+
+Test(my_printf, count_power_ten_test)
+{
+    long power = 9;
+    int result = count_power_ten(power);
+    cr_assert_eq(result, 1);
+}
+
+Test(my_printf, count_power_ten_test_2)
+{
+    long power = 11;
+    int result = count_power_ten(power);
+    cr_assert_eq(result, 2);
+}
+
+Test(my_printf, scientific_write_pos_zero_maj, .init = redirect_all_std)
+{
+    my_printf("%E\n", 0.215487);
+    cr_assert_stdout_eq_str("2.154870E-01\n");
+}
+
+Test(my_printf, scientific_write_neg_zero_maj, .init = redirect_all_std)
+{
+    my_printf("%E\n", -0.215487);
+    cr_assert_stdout_eq_str("-2.154870E-01\n");
+}
+
+Test(my_printf, scientific_write_pos_upper_zero_maj, .init = redirect_all_std)
+{
+    my_printf("%E\n", 21.215487);
+    cr_assert_stdout_eq_str("2.121549E+01\n");
+}

@@ -5,9 +5,9 @@
 ** git digit function for my_printf project
 */
 
-long get_digit(long ptr, long power)
+int get_digit(unsigned long ptr, long long power)
 {
-    long result = 0;
+    long long result = 0;
 
     while (ptr >= (power * result)) {
         result++;

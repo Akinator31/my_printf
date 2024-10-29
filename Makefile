@@ -6,12 +6,16 @@
 ##
 
 SRC =  lib/my/my_put_nbr.c \
+       lib/my/my_put_float.c \
        lib/my/my_put_unsigned_nbr.c \
        lib/my/my_putchar.c \
        lib/my/my_putstr.c \
        lib/my/my_strcpy.c \
        lib/my/my_strlen.c \
        lib/my/get_digit.c \
+       lib/my/count_power.c \
+       lib/my/write_e_power.c \
+       lib/my/count_power_ten.c \
        my_printf.c \
        src/flags/print_dec_oct_hex_integer.c \
        src/flags/print_string.c \
@@ -23,6 +27,10 @@ SRC =  lib/my/my_put_nbr.c \
        src/flags/print_hexa_min.c \
        src/flags/print_hexa_maj.c \
        src/flags/get_nb_of_char.c \
+       src/flags/print_e_min.c \
+       src/flags/print_e_maj.c \
+       src/flags/print_float_min.c \
+       src/flags/print_float_maj.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -46,7 +54,7 @@ test_gcovr: CFLAGS += --coverage -L. -lmy -lgcov -lcriterion
 test_gcovr: $(NAME)
 	gcc -o unit $(OBJ) tests/test_my_printf.c $(CFLAGS)
 
-test_run: unit_tests
+tests_run: unit_tests
 	./unit_tests
 
 unit_tests: CFLAGS += --coverage -L. -lmy -lgcov -lcriterion
@@ -64,17 +72,13 @@ clean:
 	rm -f src/flags/*.gcda
 	rm -f src/flags/*.gcno
 	rm -f *.o
-	rm -f prog
-	rm -f libmy.a
 	rm -f unit-*
-	rm -f unit
 	rm -f tests/*.gcda
 	rm -f tests/*.gcno
 	rm -f lib/my/*.gcda
 	rm -f lib/my/*.gcno
 	rm -f *.gcda
 	rm -f *.gcno
-	rm -f unit_tests
 
 fclean: clean
 

@@ -8,9 +8,13 @@
 #ifndef MY_H
     #define MY_H
     #include <stdarg.h>
+    #define IS_INFINITY __builtin_inff()
+    #define IS_NAN __builtin_nan("")
+    #define NEG_POS_ZERO(x) __builtin_signbit (x)
 
 void my_putchar(char c);
 int my_put_nbr(int nb);
+int my_put_float(float nb, int is_maj);
 int my_put_unsigned_nbr(unsigned int nb);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
@@ -25,10 +29,19 @@ void print_dec_oct_hex_integer(va_list *list, int *nb_output_char);
 void print_pointer(va_list *list, int *nb_output_char);
 void print_octal(va_list *list, int *nb_output_char);
 void print_unsigned_int(va_list *list, int *nb_output_char);
-long get_digit(long ptr, long power);
+int get_digit(unsigned long ptr, long long power);
 void print_hexa_min(va_list *list, int *nb_output_char);
 void print_hexa_maj(va_list *list, int *nb_output_char);
 void get_nb_of_char(va_list *list, int *nb_output_char);
+void print_float_min(va_list *list, int *nb_output_char);
+void print_float_maj(va_list *list, int *nb_output_char);
+void print_e_min(va_list *list, int *nb_output_char);
+void print_e_maj(va_list *list, int *nb_output_char);
+long count_power(double nb);
+void print_float_min(va_list *list, int *nb_output_char);
+void print_float_maj(va_list *list, int *nb_output_char);
+void ten_power_write(long power, double nb, int positive, int maj);
+int count_power_ten(long power);
 
 typedef struct format_specifier {
     char format_specifier;
