@@ -56,7 +56,7 @@ void print_floating_part(int floating_part, double temp, int *nb_output_char)
         floating_part += 1;
     } else {
         floating_part /= 10;
-        floating_part -= 1;
+        floating_part += 1;
     }
     *nb_output_char += my_put_nbr(floating_part);
 }
