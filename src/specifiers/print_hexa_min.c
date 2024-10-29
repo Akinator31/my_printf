@@ -20,12 +20,27 @@ long calc_pow_hexa_min(long ptr)
     return power;
 }
 
+int count_char_in_hexa_min(long power, long pointer)
+{
+    int i_char = 0;
+    long digit = 0;
+
+    while (power > 0) {
+        digit = get_digit(pointer, power);
+        pointer -= power * digit;
+        power /= 16;
+        i_char++;
+    }
+    return i_char;
+}
+
 void print_hexa_min(va_list *list, int *nb_output_char,
     int *index, const char *format)
 {
     long pointer = va_arg(*list, long);
     long power_16 = calc_pow_hexa_min(pointer);
     long digit = 0;
+    int i_char = count_char_in_hexa_min(power_16, pointer);
     char base[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
 
