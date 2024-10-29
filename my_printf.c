@@ -11,33 +11,50 @@
 #include "include/my.h"
 
 static const format_specifier_t specifier_arr[] = {
-    {'d', &print_dec_oct_hex_integer},
-    {'i', &print_dec_oct_hex_integer},
-    {'s', &print_string},
-    {'c', &print_char},
-    {'%', &print_percent},
-    {'p', &print_pointer},
-    {'o', &print_octal},
-    {'u', &print_unsigned_int},
-    {'x', &print_hexa_min},
-    {'X', &print_hexa_maj},
-    {'n', &get_nb_of_char},
-    {'e', &print_e_min},
-    {'E', &print_e_maj},
-    {'f', &print_float_min},
-    {'F', &print_float_maj},
-    {'?', NULL}
+    {'d', &print_dec_oct_hex_integer, 2},
+    {'i', &print_dec_oct_hex_integer, 3},
+    {'s', &print_string, 4},
+    {'c', &print_char, 5},
+    {'%', &print_percent, 6},
+    {'p', &print_pointer, 7},
+    {'o', &print_octal, 8},
+    {'u', &print_unsigned_int, 9},
+    {'x', &print_hexa_min, 10},
+    {'X', &print_hexa_maj, 11},
+    {'n', &get_nb_of_char, 12},
+    {'f', &print_float_min, 13},
+    {'F', &print_float_maj, 14},
+    {'e', &print_e_min, 15},
+    {'E', &print_e_maj, 16},
+    {'?', NULL, 84}
 };
 
-void compute(int *nb_output_char, const char *format, int index, va_list *list)
+int my_get_id_of_specifier(char specifier)
+{
+    int i = 0;
+
+    for (i; specifier_arr[i].f != NULL; i++) {
+        if (specifier_arr[i].format_specifier == specifier)
+            return specifier_arr[i].id;
+    }
+}
+
+int compute(int *nb_output_char, const char *format, int index, va_list *list)
 {
     int i;
+    int specifier = my_is_good_format(format, index);
 
+    if (specifier == FALSE) {
+        my_putchar('%');
+        my_putchar(format[index + 1]);
+        return index + 1;
+    }
     for (i = 0; specifier_arr[i].f != NULL; i++) {
-        if (format[index + 1] == specifier_arr[i].format_specifier) {
-            (*specifier_arr[i].f)(list, nb_output_char);
+        if (specifier == specifier_arr[i].id) {
+            (*specifier_arr[i].f)(list, nb_output_char, &index, format);
         }
     }
+    return index;
 }
 
 int my_printf(const char *restrict format, ...)
@@ -50,8 +67,7 @@ int my_printf(const char *restrict format, ...)
     va_start(list, format);
     for (i = 0; i < size_str; i++) {
         if ((format[i] == '%') && (format[i + 1] != '\0')) {
-            compute(&nb_output_char, format, i, &list);
-            i += 1;
+            i = compute(&nb_output_char, format, i, &list);
             continue;
         }
         my_putchar(format[i]);

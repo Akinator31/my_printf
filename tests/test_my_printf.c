@@ -147,13 +147,6 @@ Test(my_printf, float_inf_in_a_string, .init = redirect_all_std)
     my_printf("Test affichage %f\n", test);
     cr_assert_stdout_eq_str("Test affichage inf\n");
 }
-/*
-Test(my_printf, float_round_min, .init = redirect_all_std)
-{
-    my_printf("Test affichage %f\n", 34.789744);
-    cr_assert_stdout_eq_str("Test affichage 34.789744\n");
-}
-*/
 
 Test(my_printf, scientific_write_pos_zero, .init = redirect_all_std)
 {

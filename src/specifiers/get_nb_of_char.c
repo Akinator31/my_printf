@@ -8,9 +8,11 @@
 #include "../../include/my.h"
 #include <stdarg.h>
 
-void get_nb_of_char(va_list *list, int *nb_output_char)
+void get_nb_of_char(va_list *list, int *nb_output_char,
+    int *index, const char *format)
 {
     int *result = va_arg(*list, int *);
 
     *result = *nb_output_char;
+    *index += 1;
 }

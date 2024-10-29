@@ -20,7 +20,8 @@ long calc_pow_hexa_maj(long ptr)
     return power;
 }
 
-void print_hexa_maj(va_list *list, int *nb_output_char)
+void print_hexa_maj(va_list *list, int *nb_output_char,
+    int *index, const char *format)
 {
     long pointer = va_arg(*list, long);
     long power_16 = calc_pow_hexa_maj(pointer);
@@ -35,4 +36,5 @@ void print_hexa_maj(va_list *list, int *nb_output_char)
         power_16 /= 16;
         *nb_output_char++;
     }
+    *index += 1;
 }

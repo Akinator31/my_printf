@@ -20,7 +20,8 @@ long calc_pow_8(long ptr)
     return power;
 }
 
-void print_octal(va_list *list, int *nb_output_char)
+void print_octal(va_list *list, int *nb_output_char,
+    int *index, const char *format)
 {
     long pointer = va_arg(*list, long);
     long power_8 = calc_pow_8(pointer);
@@ -34,4 +35,5 @@ void print_octal(va_list *list, int *nb_output_char)
         power_8 /= 8;
         *nb_output_char++;
     }
+    *index += 1;
 }

@@ -1,13 +1,12 @@
 /*
 ** EPITECH PROJECT, 2024
-** print_pointer.c
+** my_put_pointer.c
 ** File description:
-** print_pointer function for my_printf project (%p)
+** my_put_pointer function for mylib
 */
 
-#include <stdio.h>
-#include <unistd.h>
 #include "../../include/my.h"
+#include <unistd.h>
 
 long long calc_pow_16(unsigned long ptr)
 {
@@ -20,11 +19,11 @@ long long calc_pow_16(unsigned long ptr)
     return power;
 }
 
-void print_pointer(va_list *list, int *nb_output_char)
+int my_put_pointer(unsigned long pointer)
 {
-    unsigned long pointer = (unsigned long)va_arg(*list, void *);
     long long power_16 = calc_pow_16(pointer);
     long long digit = 0;
+    int nb_output_char = 2;
     char base[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8',
         '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -34,6 +33,6 @@ void print_pointer(va_list *list, int *nb_output_char)
         write(1, &base[digit], 1);
         pointer -= power_16 * digit;
         power_16 /= 16;
-        *nb_output_char++;
+        nb_output_char++;
     }
 }
