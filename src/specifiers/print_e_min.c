@@ -8,12 +8,14 @@
 #include "../../include/my.h"
 #include <stdio.h>
 
-void print_e_min(va_list *list, int *nb_output_char)
+void print_e_min(va_list *list, int *nb_output_char,
+    int *index, const char *format)
 {
     double nb = va_arg(*list, double);
     long power = count_power(nb);
     int positive;
 
+    *index += get_next_char(format, index);
     if (nb < 0) {
         my_putchar('-');
         nb *= -1;
