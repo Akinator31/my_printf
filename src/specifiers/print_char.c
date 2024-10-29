@@ -7,10 +7,12 @@
 
 #include "../../include/my.h"
 
-void print_char(va_list *list, int *nb_output_char)
+void print_char(va_list *list, int *nb_output_char,
+    int *index, const char *format)
 {
     char character = va_arg(*list, int);
 
     my_putchar(character);
-    *nb_output_char++;
+    *nb_output_char += 1;
+    *index += 1;
 }

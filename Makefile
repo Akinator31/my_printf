@@ -9,23 +9,40 @@ SRC =  lib/my/my_put_nbr.c \
        lib/my/my_put_float.c \
        lib/my/my_put_unsigned_nbr.c \
        lib/my/my_putchar.c \
+       lib/my/my_put_pointer.c \
        lib/my/my_putstr.c \
        lib/my/my_strcpy.c \
        lib/my/my_strlen.c \
        lib/my/get_digit.c \
+       lib/my/my_getnbr.c \
+       lib/my/my_compute_power_rec.c \
+       lib/my/my_strdup.c \
+       lib/my/my_get_nb_length.c \
+       src/utils/my_is_a_flag.c \
+       src/utils/my_is_a_specifier.c \
+       src/utils/my_is_good_format.c \
+       src/utils/my_is_a_number.c \
+       src/utils/my_get_absolute_value_of_int.c \
+       src/utils/my_get_next_char.c \
        my_printf.c \
-       src/flags/print_dec_oct_hex_integer.c \
-       src/flags/print_string.c \
-       src/flags/print_char.c \
-       src/flags/print_percent.c \
-       src/flags/print_pointer.c \
-       src/flags/print_octal.c \
-       src/flags/print_unsigned_int.c \
-       src/flags/print_hexa_min.c \
-       src/flags/print_hexa_maj.c \
-       src/flags/get_nb_of_char.c \
-       src/flags/print_float_min.c \
-       src/flags/print_float_maj.c \
+       src/specifiers/print_dec_oct_hex_integer.c \
+       src/specifiers/print_string.c \
+       src/specifiers/print_char.c \
+       src/specifiers/print_percent.c \
+       src/specifiers/print_pointer.c \
+       src/specifiers/print_octal.c \
+       src/specifiers/print_unsigned_int.c \
+       src/specifiers/print_hexa_min.c \
+       src/specifiers/print_hexa_maj.c \
+       src/specifiers/get_nb_of_char.c \
+       src/specifiers/print_float_min.c \
+       src/specifiers/print_float_maj.c \
+       src/flags/flags_plus.c \
+       src/flags/flags_minus.c \
+       src/flags/flags_space.c \
+       src/flags/flags_zero.c \
+       src/flags/flags_hashtag.c \
+       src/flags/flags_apply.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -66,6 +83,9 @@ clean:
 	rm -f src/flags/*.o
 	rm -f src/flags/*.gcda
 	rm -f src/flags/*.gcno
+	rm -f src/specifiers/*.o
+	rm -f src/specifiers/*.gcno
+	rm -f src/specifiers/*.gcda
 	rm -f *.o
 	rm -f prog
 	rm -f libmy.a
@@ -78,6 +98,9 @@ clean:
 	rm -f *.gcda
 	rm -f *.gcno
 	rm -f unit_tests
+	rm -f src/utils/*.o
+	rm -f src/utils/*.gcda
+	rm -f src/utils/*.gcno
 
 fclean: clean
 
