@@ -20,6 +20,20 @@ long calc_pow_8(long ptr)
     return power;
 }
 
+int count_char_in_octal(long power_8, long pointer)
+{
+    int i_char = 0;
+    long digit = 0;
+
+    while (power_8 > 0) {
+        digit = get_digit(pointer, power_8);
+        pointer -= power_8 * digit;
+        power_8 /= 8;
+        i_char++;
+    }
+    return i_char;
+}
+
 void print_octal(va_list *list, int *nb_output_char,
     int *index, const char *format)
 {
@@ -27,6 +41,7 @@ void print_octal(va_list *list, int *nb_output_char,
     long power_8 = calc_pow_8(pointer);
     long digit = 0;
     char base[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
+    int i_char = count_char_in_octal(power_8, pointer);
 
     while (power_8 > 0) {
         digit = get_digit(pointer, power_8);
