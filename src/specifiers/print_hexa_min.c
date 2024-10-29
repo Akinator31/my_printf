@@ -28,7 +28,7 @@ int count_char_in_hexa_min(long power, long pointer)
     while (power > 0) {
         digit = get_digit(pointer, power);
         pointer -= power * digit;
-        power /= 8;
+        power /= 16;
         i_char++;
     }
     return i_char;
@@ -44,7 +44,6 @@ void print_hexa_min(va_list *list, int *nb_output_char,
     char base[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'a', 'b', 'c', 'd', 'e', 'f'};
 
-    printf("%d\n", i_char);
     while (power_16 > 0) {
         digit = get_digit(pointer, power_16);
         write(1, &base[digit], 1);
