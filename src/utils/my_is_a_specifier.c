@@ -12,7 +12,7 @@ int my_is_a_specifier(char actual_char)
     char specifiers_arr[] = {
         'd', 'i', 's', 'c', '%', 'p', 'o',
         'x', 'X', 'n', 'f', 'F', 'u', 'e', 'E',
-	'?'
+        '?'
     };
     int i;
 
