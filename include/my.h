@@ -35,6 +35,13 @@ void print_hexa_maj(va_list *list, int *nb_output_char);
 void get_nb_of_char(va_list *list, int *nb_output_char);
 void print_float_min(va_list *list, int *nb_output_char);
 void print_float_maj(va_list *list, int *nb_output_char);
+void print_e_min(va_list *list, int *nb_output_char);
+void print_e_maj(va_list *list, int *nb_output_char);
+long count_power(double nb);
+void print_float_min(va_list *list, int *nb_output_char);
+void print_float_maj(va_list *list, int *nb_output_char);
+void ten_power_write(long power, double nb, int positive, int maj);
+int count_power_ten(long power);
 
 typedef struct format_specifier {
     char format_specifier;

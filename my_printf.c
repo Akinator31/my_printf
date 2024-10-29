@@ -22,6 +22,8 @@ static const format_specifier_t specifier_arr[] = {
     {'x', &print_hexa_min},
     {'X', &print_hexa_maj},
     {'n', &get_nb_of_char},
+    {'e', &print_e_min},
+    {'E', &print_e_maj},
     {'f', &print_float_min},
     {'F', &print_float_maj},
     {'?', NULL}

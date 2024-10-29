@@ -9,9 +9,9 @@
 #include <unistd.h>
 #include "../../include/my.h"
 
-long long calc_pow_hexa_maj(int ptr)
+long calc_pow_hexa_maj(long ptr)
 {
-    long long power = 1;
+    long power = 1;
 
     while (power < ptr) {
         power *= 16;
@@ -22,11 +22,11 @@ long long calc_pow_hexa_maj(int ptr)
 
 void print_hexa_maj(va_list *list, int *nb_output_char)
 {
-    int pointer = (int)va_arg(*list, int);
-    long long power_16 = calc_pow_hexa_maj(pointer);
-    long long digit = 0;
+    long pointer = va_arg(*list, long);
+    long power_16 = calc_pow_hexa_maj(pointer);
+    long digit = 0;
     char base[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'A', 'B', 'C', 'D', 'E', 'E'};
+        'A', 'B', 'C', 'D', 'E', 'F'};
 
     while (power_16 > 0) {
         digit = get_digit(pointer, power_16);

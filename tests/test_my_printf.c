@@ -154,3 +154,74 @@ Test(my_printf, float_round_min, .init = redirect_all_std)
     cr_assert_stdout_eq_str("Test affichage 34.789744\n");
 }
 */
+
+Test(my_printf, scientific_write_pos_zero, .init = redirect_all_std)
+{
+    my_printf("%e\n", 0.215487);
+    cr_assert_stdout_eq_str("2.154870e-01\n");
+}
+
+Test(my_printf, scientific_write_neg_zero, .init = redirect_all_std)
+{
+    my_printf("%e\n", -0.215487);
+    cr_assert_stdout_eq_str("-2.154870e-01\n");
+}
+
+Test(my_printf, scientific_write_pos_upper_zero, .init = redirect_all_std)
+{
+    my_printf("%e\n", 21.215487);
+    cr_assert_stdout_eq_str("2.121549e+01\n");
+}
+
+Test(my_printf, count_power_ten_test)
+{
+    long power = 9;
+    int result = count_power_ten(power);
+    cr_assert_eq(result, 1);
+}
+
+Test(my_printf, count_power_ten_test_2)
+{
+    long power = 11;
+    int result = count_power_ten(power);
+    cr_assert_eq(result, 2);
+}
+
+Test(my_printf, scientific_write_pos_zero_maj, .init = redirect_all_std)
+{
+    my_printf("%E\n", 0.215487);
+    cr_assert_stdout_eq_str("2.154870E-01\n");
+}
+
+Test(my_printf, scientific_write_neg_zero_maj, .init = redirect_all_std)
+{
+    my_printf("%E\n", -0.215487);
+    cr_assert_stdout_eq_str("-2.154870E-01\n");
+}
+
+Test(my_printf, scientific_write_pos_upper_zero_maj, .init = redirect_all_std)
+{
+    my_printf("%E\n", 21.215487);
+    cr_assert_stdout_eq_str("2.121549E+01\n");
+}
+
+Test(my_printf, octal_neg, .init = redirect_all_std)
+{
+    int dec = -610;
+    my_printf("%o\n", dec);
+    cr_assert_stdout_eq_str("37777776636\n");
+}
+
+Test(my_printf, hexa_neg, .init = redirect_all_std)
+{
+    int dec = -610;
+    my_printf("%x\n", dec);
+    cr_assert_stdout_eq_str("fffffd9e\n");
+}
+
+Test(my_printf, hexa_maj_neg, .init = redirect_all_std)
+{
+    int dec = -610;
+    my_printf("%X\n", dec);
+    cr_assert_stdout_eq_str("FFFFFD9E\n");
+}
