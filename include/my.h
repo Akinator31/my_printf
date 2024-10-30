@@ -48,6 +48,7 @@ int my_is_a_flag(char actual_char);
 int my_is_a_specifier(char actual_char);
 int my_is_good_format(char const *format, int index);
 int my_is_a_number(char actual_char);
+int my_float_length(float nb, int is_maj);
 int flag_plus_finder(const char *format, int *index);
 int flag_space_finder(const char *format, int *index);
 int flag_hashtag_finder(const char *format, int *index);
@@ -60,6 +61,12 @@ void apply_good_space_for_int_specifier(int
     flag_minus, int flag_plus, int flag_space, int nb_char_printed);
 void apply_minus_and_zero_flags_for_int_specifier(int
     *flags_arr[], int value);
+void apply_minus_and_zero_flags_for_float_specifier(int
+    **flags_arr, float value);
+void apply_zero_plus_hashtag_flag(const char *format, int *index,
+    int *nb_output_char, int len);
+void apply_minus_flag(const char *format, int *index,
+    int *nb_output_char, int len);
 int my_printf(const char *restrict format, ...);
 int compute(int *nb_output_char,
     const char *format, int index, va_list *list);
