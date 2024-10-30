@@ -40,10 +40,13 @@ void print_hexa_maj(va_list *list, int *nb_output_char,
     long pointer = va_arg(*list, long);
     long power_16 = calc_pow_hexa_maj(pointer);
     long digit = 0;
-    int i_char = count_char_in_hexa_maj(power_16, pointer);
+    int length = count_char_in_hexa_maj(power_16, pointer);
     char base[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         'A', 'B', 'C', 'D', 'E', 'F'};
+    int flag_hashtag = flag_hashtag_finder(format, index);
 
+    apply_zero_plus_hashtag_flag(format, index,
+        nb_output_char, length);
     while (power_16 > 0) {
         digit = get_digit(pointer, power_16);
         write(1, &base[digit], 1);
@@ -51,5 +54,6 @@ void print_hexa_maj(va_list *list, int *nb_output_char,
         power_16 /= 16;
         *nb_output_char++;
     }
-    *index += 1;
+    apply_minus_flag(format, index, nb_output_char, length);
+    *index += get_next_char(format, index);
 }

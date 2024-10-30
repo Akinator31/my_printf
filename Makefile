@@ -21,6 +21,7 @@ SRC =  lib/my/my_put_nbr.c \
        lib/my/write_e_power.c \
        lib/my/count_power_ten.c \
        lib/my/my_get_nb_length.c \
+       lib/my/my_float_length.c \
        src/utils/my_is_a_flag.c \
        src/utils/my_is_a_specifier.c \
        src/utils/my_is_good_format.c \

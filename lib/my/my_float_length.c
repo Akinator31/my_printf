@@ -7,14 +7,13 @@
 
 #include "../../include/my.h"
 
-void negative_number(float *nb, int *nb_output_char)
+void negative_number_len(float *nb, int *nb_output_char)
 {
     *nb *= -1;
-    my_putchar('-');
     *nb_output_char++;
 }
 
-int check_infinity_nan(float nb, int is_maj)
+int check_infinity_nan_len(float nb, int is_maj)
 {
     if (nb == IS_INFINITY) {
         if (is_maj == 1) {
@@ -37,16 +36,15 @@ int check_infinity_nan(float nb, int is_maj)
     return 0;
 }
 
-void print_float_particular_case(float nb, float temp, int *nb_c)
+void print_float_particular_case_len(float nb, float temp, int *nb_c)
 {
-    *nb_c += my_put_nbr((int)nb) + 1;
-    my_putchar('.');
-    *nb_c += my_put_nbr((int)temp % 1000000);
+    *nb_c += my_get_nb_length((int)nb) + 1;
+    *nb_c += my_get_nb_length((int)temp % 1000000);
 }
 
-void print_floating_part(int floating_part, double temp, int *nb_output_char)
+void print_floating_part_len(int floating_part,
+    double temp, int *nb_output_char)
 {
-    my_putchar('.');
     for (int i = 0; i < 7; i++) {
         temp *= 10;
     }
@@ -58,39 +56,38 @@ void print_floating_part(int floating_part, double temp, int *nb_output_char)
         floating_part /= 10;
         floating_part += 1;
     }
-    *nb_output_char += my_put_nbr(floating_part);
+    *nb_output_char += my_get_nb_length(floating_part);
 }
 
-static int check_special_case(float nb, int is_maj, float temp, int *nb_c)
+static int check_special_case_len(float nb, int is_maj, float temp, int *nb_c)
 {
-    if (check_infinity_nan(nb, is_maj) == 1)
+    if (check_infinity_nan_len(nb, is_maj) == 1)
         return 1;
     temp = nb * 1000000;
     if (((int)temp % 10) == 0) {
-        print_float_particular_case(nb, temp, nb_c);
+        print_float_particular_case_len(nb, temp, nb_c);
         return 1;
     }
 }
 
-int my_put_float(float nb, int is_maj)
+int my_float_length(float nb, int is_maj)
 {
     int whole_part;
     int floating_part;
     double temp;
     int nb_c = 0;
 
-    if (check_special_case(nb, is_maj, temp, &nb_c) == 1)
+    if (check_special_case_len(nb, is_maj, temp, &nb_c) == 1)
         return nb_c;
     if (nb < 0)
-        negative_number(&nb, &nb_c);
+        negative_number_len(&nb, &nb_c);
     whole_part = (int)nb;
     temp = (double)nb - whole_part;
     if (temp == 0) {
-        nb_c += my_put_nbr(whole_part) + 7;
-        my_putstr(".000000");
+        nb_c += my_get_nb_length(whole_part) + 7;
         return nb_c;
     }
-    nb_c += my_put_nbr(whole_part);
-    print_floating_part(floating_part, temp, &nb_c);
+    nb_c += my_get_nb_length(whole_part);
+    print_floating_part_len(floating_part, temp, &nb_c);
     return nb_c;
 }

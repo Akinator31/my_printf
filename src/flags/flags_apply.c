@@ -41,3 +41,17 @@ void apply_minus_and_zero_flags_for_int_specifier(int
         for (int j = 0; j < (*flags_arr[4] - my_get_nb_length(value)); j++)
             my_putchar('0');
 }
+
+void apply_minus_and_zero_flags_for_float_specifier(int
+    **flags_arr, float value)
+{
+    if ((*flags_arr[4] > 0) && (*flags_arr[3] == 0)
+        && ((*flags_arr[0] == 1) || (*flags_arr[1] == 1)))
+        for (int e = 0;
+            e < (*flags_arr[4] - my_float_length(value, 0) - 1); e++)
+            my_putchar('0');
+    if ((*flags_arr[4] > 0) && (*flags_arr[3] == 0)
+        && ((*flags_arr[0] == 0) && (*flags_arr[1] == 0)))
+        for (int j = 0; j < (*flags_arr[4] - my_float_length(value, 0)); j++)
+            my_putchar('0');
+}
