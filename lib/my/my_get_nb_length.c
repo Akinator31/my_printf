@@ -20,6 +20,8 @@ int my_get_nb_length(int nb)
 
     if (nb < 0)
         check_neg_number(&nb);
+    if (nb <= 9)
+        return 1;
     while (divider <= (nb / 10)) {
         counter_digits++;
         return_nb_digit = counter_digits;
