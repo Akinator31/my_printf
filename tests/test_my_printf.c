@@ -120,19 +120,19 @@ Test(my_printf, nb_of_char_before_the_n_flag)
 Test(my_printf, float_min_in_a_string, .init = redirect_all_std)
 {
     my_printf("Test affichage float min %f\n", 456.89);
-    cr_assert_stdout_eq_str("Test affichage float min 456.890015\n");
+    cr_assert_stdout_eq_str("Test affichage float min 456.890000\n");
 }
 
 Test(my_printf, float_maj_in_a_string, .init = redirect_all_std)
 {
     my_printf("Test affichage float min %F\n", 456.89);
-    cr_assert_stdout_eq_str("Test affichage float min 456.890015\n");
+    cr_assert_stdout_eq_str("Test affichage float min 456.890000\n");
 }
 
 Test(my_printf, float_neg_in_a_string, .init = redirect_all_std)
 {
     my_printf("Test affichage float min %f\n", -456.89);
-    cr_assert_stdout_eq_str("Test affichage float min -456.890015\n");
+    cr_assert_stdout_eq_str("Test affichage float min -456.890000\n");
 }
 
 Test(my_printf, float_INF_in_a_string, .init = redirect_all_std)
