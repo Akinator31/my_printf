@@ -11,7 +11,7 @@
 void print_float_maj(va_list *list, int *nb_output_char,
     int *index, const char *format)
 {
-    float value = va_arg(*list, double);
+    double value = va_arg(*list, double);
     int nb_char_printed = 0;
     int flag_plus = flag_plus_finder(format, index);
     int flag_space = flag_space_finder(format, index);
