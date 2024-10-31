@@ -11,7 +11,7 @@
 void print_float_min(va_list *list, int *nb_output_char,
     int *index, const char *format)
 {
-    float value = va_arg(*list, double);
+    double value = va_arg(*list, double);
     int nb_char_printed = my_put_float(value, 0);
 
     *nb_output_char += nb_char_printed;
