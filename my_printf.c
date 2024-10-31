@@ -26,6 +26,7 @@ static const format_specifier_t specifier_arr[] = {
     {'F', &print_float_maj, 14},
     {'e', &print_e_min, 15},
     {'E', &print_e_maj, 16},
+    {'b', &print_binary, 17},
     {'?', NULL, 84}
 };
 

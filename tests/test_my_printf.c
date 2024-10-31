@@ -8,6 +8,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 #include "../include/my.h"
+#include <math.h>
 
 void redirect_all_std(void)
 {
@@ -119,19 +120,19 @@ Test(my_printf, nb_of_char_before_the_n_flag)
 Test(my_printf, float_min_in_a_string, .init = redirect_all_std)
 {
     my_printf("Test affichage float min %f\n", 456.89);
-    cr_assert_stdout_eq_str("Test affichage float min 456.890015\n");
+    cr_assert_stdout_eq_str("Test affichage float min 456.890000\n");
 }
 
 Test(my_printf, float_maj_in_a_string, .init = redirect_all_std)
 {
     my_printf("Test affichage float min %F\n", 456.89);
-    cr_assert_stdout_eq_str("Test affichage float min 456.890015\n");
+    cr_assert_stdout_eq_str("Test affichage float min 456.890000\n");
 }
 
 Test(my_printf, float_neg_in_a_string, .init = redirect_all_std)
 {
     my_printf("Test affichage float min %f\n", -456.89);
-    cr_assert_stdout_eq_str("Test affichage float min -456.890015\n");
+    cr_assert_stdout_eq_str("Test affichage float min -456.890000\n");
 }
 
 Test(my_printf, float_INF_in_a_string, .init = redirect_all_std)
@@ -217,4 +218,20 @@ Test(my_printf, hexa_maj_neg, .init = redirect_all_std)
     int dec = -610;
     my_printf("%X\n", dec);
     cr_assert_stdout_eq_str("FFFFFD9E\n");
+}
+
+Test(my_compute_power_rec, power_func_test)
+{
+    int my_func = my_compute_power_rec(4, 8);
+    int result = pow(4, 8);
+
+    cr_assert_eq(my_func, result);
+}
+
+Test(my_compute_power_rec, p_of_zero)
+{
+    int my_func = my_compute_power_rec(45, -8);
+    int result = pow(45, -8);
+
+    cr_assert_eq(my_func, result);
 }
