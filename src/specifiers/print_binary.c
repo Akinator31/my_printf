@@ -44,7 +44,6 @@ void print_binary(va_list *list, int *nb_output_char,
     int *index, const char *format)
 {
     long pointer = check_neg_value(va_arg(*list, long));
-    printf("test%d\n", pointer);
     long power_2 = calc_pow_hexa_binary(pointer);
     long digit = 0;
     int length = count_char_in_binary(power_2, pointer);

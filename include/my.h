@@ -33,7 +33,7 @@ enum my_printf {
 
 void my_putchar(char c);
 int my_put_nbr(int nb);
-int my_put_float(float nb, int is_maj);
+int my_put_float(double nb, int is_maj);
 int my_put_unsigned_nbr(unsigned int nb);
 int my_put_pointer(unsigned long pointer);
 int my_putstr(char const *str);

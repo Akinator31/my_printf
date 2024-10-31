@@ -16,7 +16,7 @@ void print_float_maj(va_list *list, int *nb_output_char,
     int flag_plus = flag_plus_finder(format, index);
     int flag_space = flag_space_finder(format, index);
     int flag_minus = flag_minus_finder(format, index);
-    int flag_zero = flag_zero_finder(format, index);
+    int flag_zero = flag_zero_finder(format, index) - 1;
     int flag_hashtag = flag_hashtag_finder(format, index);
     int *flags_arr[] = {&flag_plus, &flag_space, &flag_hashtag,
         &flag_minus, &flag_zero};
