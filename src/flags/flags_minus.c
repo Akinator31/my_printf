@@ -7,6 +7,7 @@
 
 #include "../../include/my.h"
 #include <stdlib.h>
+#include <stdarg.h>
 
 int flag_minus_finder(const char *format, int *index)
 {

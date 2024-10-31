@@ -6,6 +6,7 @@
 */
 
 #include "../../include/my.h"
+#include <stdarg.h>
 
 int flag_zero_finder(const char *format, int *index)
 {
