@@ -101,7 +101,7 @@ int my_put_float(double nb, int is_maj)
     int nb_c = 0;
 
     if (nb < 0)
-         negative_number(&nb, &nb_c);
+        negative_number(&nb, &nb_c);
     if (check_special_case(nb, is_maj, temp, &nb_c) == 1)
         return nb_c;
     whole_part = (int)nb;
