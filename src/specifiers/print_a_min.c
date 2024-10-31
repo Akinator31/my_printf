@@ -60,7 +60,7 @@ static void write_power_two(double nb, int test_power_two)
     if (exp > 0)
         my_printf("p+%d", exp);
     if (exp < 0)
-        my_printf("p%d", exp);
+        my_printf("p%d", exp - 1);
 }
 
 static double write_float_hexa(long precision, double calc_nb, int left_part_nb)
@@ -126,8 +126,11 @@ void print_a_min(va_list *list, int *nb_output_char,
         nb *= -1;
         my_putchar('-');
     }
+    if (nb == 0) {
+        my_printf("0x0p+0");
+        *index += get_next_char(format, index);
+        return;
+    }
     print_a_min_after_test_isneg(nb);
     *index += get_next_char(format, index);
 }
-
-// s'occuper de l'exposant qui est trop petit lorsqu'on est dans les puissance neg
