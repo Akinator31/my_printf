@@ -247,3 +247,93 @@ Test(my_printf, binary_specifier_in_a_string, .init = redirect_all_std)
     my_printf("test : %b\n", 45);
     cr_assert_stdout_eq_str("test : 101101\n");
 }
+
+Test(count_power, 0_as_value)
+{
+    long test = count_power(0);
+    cr_assert_eq(test, 0);
+}
+
+Test(my_get_nb_length, negative_number)
+{
+    int test = my_get_nb_length(-78);
+    cr_assert_eq(test, 2);
+}
+
+Test(my_getnbr, classic_test)
+{
+    int test = my_getnbr("ce chiffre cool est 42 !");
+    cr_assert_eq(test, 42);
+}
+
+Test(my_getnbr, too_large_number)
+{
+    int test = my_getnbr("ce chiffre : 2147483689887");
+    cr_assert_eq(test, 0);
+}
+
+Test(my_getnbr, neg_number)
+{
+    int test = my_getnbr("ce chiffre : -7");
+    cr_assert_eq(test, -7);
+}
+
+Test(my_getnbr, plus_in_a_string)
+{
+    int test = my_getnbr("ce ++-chiffre : +45");
+    cr_assert_eq(test, -45);
+}
+
+Test(my_getnbr, empty_string_test)
+{
+    int test = my_getnbr("");
+    cr_assert_eq(test, -1);
+}
+
+Test(my_strupcase, classic_test_str, .init = redirect_all_std)
+{
+    my_strupcase("salutT");
+    cr_assert_stdout_eq_str("SALUT");
+}
+
+Test(my_strupcase, test_without_letter, .init = redirect_all_std)
+{
+    my_strupcase("");
+    cr_assert_stdout_eq_str("");
+}
+
+Test(my_printf, test_flag_with_string, .init = redirect_all_std)
+{
+    my_printf("%-8s salut\n", "salut");
+    cr_assert_stdout_eq_str("salut    salut\n");
+}
+
+Test(my_printf, test_with_neg_value_min, .init = redirect_all_std)
+{
+    my_printf("%e\n", 0.0);
+    cr_assert_stdout_eq_str("0.000000e+00\n");
+}
+
+Test(my_printf, test_with_neg_value_maj, .init = redirect_all_std)
+{
+    my_printf("%E\n", 0.0);
+    cr_assert_stdout_eq_str("0.000000E+00\n");
+}
+
+Test(my_printf, test_my_printf_with_S_specifier, .init = redirect_all_std)
+{
+    my_printf("%S\n", "salut");
+    cr_assert_stdout_eq_str("SALUT\n");
+}
+
+Test(my_printf, test_str_with_zero_flag, .init = redirect_all_std)
+{
+    my_printf("%015s\n", "salut");
+    cr_assert_stdout_eq_str("          salut\n");
+}
+
+Test(my_printf, octal_with_flag_zero, .init = redirect_all_std)
+{
+    my_printf("%015o\n", 34);
+    cr_assert_stdout_eq_str("000000000000042\n");
+}
