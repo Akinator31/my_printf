@@ -51,7 +51,7 @@ int my_is_a_flag(char actual_char);
 int my_is_a_specifier(char actual_char);
 int my_is_good_format(char const *format, int index);
 int my_is_a_number(char actual_char);
-int my_float_length(float nb, int is_maj);
+int my_float_length(double nb, int is_maj);
 int flag_plus_finder(const char *format, int *index);
 int flag_space_finder(const char *format, int *index);
 int flag_hashtag_finder(const char *format, int *index);
