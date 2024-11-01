@@ -2,7 +2,6 @@
 ** EPITECH PROJECT, 2024
 ** my_put_float.c
 ** File description:
-<<<<<<< HEAD
 ** my_put_float for mylib
 */
 

@@ -14,9 +14,9 @@ int my_strupcase(char *str)
 
     for (i = 0; str[i] != '\0'; i++) {
         if ((str[i] >= 'a') && (str[i] <= 'z')) {
-	    my_putchar(str[i] - 32);
-	}
-	len += 1;
+            my_putchar(str[i] - 32);
+        }
+        len += 1;
     }
     return len;
 }
