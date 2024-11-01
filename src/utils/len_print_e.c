@@ -8,7 +8,8 @@
 #include "../../include/my.h"
 #include <stdio.h>
 
-void after_test_zero_len(double nb, int positive, long power, int *nb_output_char)
+void after_test_zero_len(double nb, int positive,
+    long power, int *nb_output_char)
 {
     if (nb > 1) {
         positive = 1;
