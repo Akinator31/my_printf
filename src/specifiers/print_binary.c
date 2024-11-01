@@ -8,7 +8,7 @@
 #include "../../include/my.h"
 #include <unistd.h>
 
-long calc_pow_hexa_binary(long ptr)
+long calc_pow_hexa_binary(int ptr)
 {
     long power = 1;
 
@@ -19,7 +19,7 @@ long calc_pow_hexa_binary(long ptr)
     return power;
 }
 
-int count_char_in_binary(long power, long pointer)
+int count_char_in_binary(int power, long pointer)
 {
     int i_char = 0;
     long digit = 0;
@@ -33,18 +33,17 @@ int count_char_in_binary(long power, long pointer)
     return i_char;
 }
 
-long check_neg_value(long nb)
+int check_neg_value(long nb)
 {
-    int result = 0;
-
-    result = (nb < 0) ? get_absolute_value_of_int(nb) : nb;
-    return result;
+    if (nb < 0)
+	my_putchar('-');
+    return (nb < 0) ? get_absolute_value_of_int(nb) : nb;
 }
 
 void print_binary(va_list *list, int *nb_output_char,
     int *index, const char *format)
 {
-    long pointer = check_neg_value(va_arg(*list, long));
+    int pointer = check_neg_value(va_arg(*list, int));
     long power_2 = calc_pow_hexa_binary(pointer);
     long digit = 0;
     int length = count_char_in_binary(power_2, pointer);
