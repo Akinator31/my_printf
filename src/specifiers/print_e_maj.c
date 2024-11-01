@@ -38,7 +38,7 @@ void test_zero_true_maj(int precision, int *nb_output_char)
         precision--;
         *nb_output_char++;
     }
-    my_putstr("e+00");
+    my_putstr("E+00");
     *nb_output_char += 4;
 }
 

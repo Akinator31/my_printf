@@ -22,6 +22,7 @@ SRC =  lib/my/my_put_nbr.c \
        lib/my/count_power_ten.c \
        lib/my/my_get_nb_length.c \
        lib/my/my_float_length.c \
+       lib/my/my_strupcase.c \
        src/utils/my_is_a_flag.c \
        src/utils/my_is_a_specifier.c \
        src/utils/my_is_good_format.c \
@@ -44,12 +45,15 @@ SRC =  lib/my/my_put_nbr.c \
        src/specifiers/print_e_min.c \
        src/specifiers/print_e_maj.c \
        src/specifiers/print_binary.c \
+       src/specifiers/print_strupcase.c \
+       src/specifiers/print_a_min.c \
        src/flags/flags_plus.c \
        src/flags/flags_minus.c \
        src/flags/flags_space.c \
        src/flags/flags_zero.c \
        src/flags/flags_hashtag.c \
-       src/flags/flags_apply.c \
+       src/flags/flags_apply_int.c \
+       src/flags/flags_apply_string.c \
 
 OBJ = $(SRC:.c=.o)
 
