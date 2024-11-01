@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2024
-** print_e_min.c
+** print_e_maj.c
 ** File description:
 ** print_e_min function for %e in my_printf project
 */
@@ -8,30 +8,38 @@
 #include "../../include/my.h"
 #include <stdio.h>
 
-void after_test_zero_maj(double nb, int positive, long power)
+void after_test_zero_maj(double nb, int positive,
+    long power, int *nb_output_char)
 {
     if (nb > 1) {
         positive = 1;
-        ten_power_write(power, nb / power, positive, 1);
+        *nb_output_char += my_float_length(nb / power, 0);
+        my_put_float(nb / power, 0);
+        ten_power_write(power, positive, 1, nb_output_char);
         return;
     }
     if (nb < 1) {
         positive = 0;
         power *= 10;
-        ten_power_write(power, nb * power, positive, 1);
+        *nb_output_char += my_float_length(nb * power, 0);
+        my_put_float(nb * power, 0);
+        ten_power_write(power, positive, 1, nb_output_char);
         return;
     }
 }
 
-void test_zero_true_maj(int precision)
+void test_zero_true_maj(int precision, int *nb_output_char)
 {
     my_put_nbr(0);
     my_putchar('.');
+    *nb_output_char++;
     while (precision != 0) {
         my_put_nbr(0);
         precision--;
+        *nb_output_char++;
     }
-    my_putstr("E+00");
+    my_putstr("e+00");
+    *nb_output_char += 4;
 }
 
 void print_e_maj(va_list *list, int *nb_output_char,
@@ -45,11 +53,12 @@ void print_e_maj(va_list *list, int *nb_output_char,
     *index += get_next_char(format, index);
     if (nb < 0) {
         my_putchar('-');
+        *nb_output_char++;
         nb *= -1;
     }
     if (nb == 0) {
-        test_zero_true_maj(precision);
+        test_zero_true_maj(precision, nb_output_char);
         return;
     }
-    after_test_zero_maj(nb, positive, power);
+    after_test_zero_maj(nb, positive, power, nb_output_char);
 }
