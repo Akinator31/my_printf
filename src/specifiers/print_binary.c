@@ -36,7 +36,7 @@ int count_char_in_binary(int power, long pointer)
 int check_neg_value(long nb)
 {
     if (nb < 0)
-	my_putchar('-');
+        my_putchar('-');
     return (nb < 0) ? get_absolute_value_of_int(nb) : nb;
 }
 
