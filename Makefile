@@ -46,6 +46,7 @@ SRC =  lib/my/my_put_nbr.c \
        src/specifiers/print_e_maj.c \
        src/specifiers/print_binary.c \
        src/specifiers/print_strupcase.c \
+       src/specifiers/print_a_min.c \
        src/flags/flags_plus.c \
        src/flags/flags_minus.c \
        src/flags/flags_space.c \

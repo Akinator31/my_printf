@@ -29,7 +29,8 @@ enum my_printf {
     F_MIN,
     F_MAJ,
     B,
-    STRING
+    STRING,
+    A
 };
 
 void my_putchar(char c);
@@ -111,6 +112,8 @@ void print_e_maj(va_list *list, int *nb_output_char,
 void print_binary(va_list *list, int *nb_output_char,
     int *index, const char *format);
 void print_strupcase(va_list *list, int *nb_output_char,
+    int *index, const char *format);
+void print_a_min(va_list *list, int *nb_output_char,
     int *index, const char *format);
 long count_power(double nb);
 void ten_power_write(long power, int positive,
