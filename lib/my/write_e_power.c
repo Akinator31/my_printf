@@ -7,24 +7,48 @@
 
 #include "../../include/my.h"
 
-void ten_power_write(long power, double nb, int positive, int maj)
+void write_in_min(int *nb_output_char, int positive)
+{
+    *nb_output_char += 2;
+    if (positive == 1)
+        my_putstr("E+");
+    if (positive == 0)
+        my_putstr("E-");
+}
+
+void write_in_maj(int *nb_output_char, int positive)
+{
+    *nb_output_char += 2;
+    if (positive == 1)
+        my_putstr("e+");
+    if (positive == 0)
+        my_putstr("e-");
+}
+
+double test_for_pos(double nb, long power, int positive)
+{
+    double nb_return;
+
+    if (positive == 1)
+        nb_return = nb / power;
+    if (positive == 0)
+        nb_return = nb * power;
+    return nb_return;
+}
+
+void ten_power_write(long power, int positive,
+    int maj, int *nb_output_char)
 {
     int exp = count_power_ten(power);
 
-    my_put_float(nb, 0);
-    if (maj == 1) {
-        if (positive == 1)
-            my_putstr("E+");
-        if (positive == 0)
-            my_putstr("E-");
-    }
-    if (maj == 0) {
-        if (positive == 1)
-            my_putstr("e+");
-        if (positive == 0)
-            my_putstr("e-");
-    }
-    if (exp < 10)
+    if (maj == 1)
+        write_in_min(nb_output_char, positive);
+    if (maj == 0)
+        write_in_maj(nb_output_char, positive);
+    if (exp < 10) {
         my_put_nbr(0);
+        *nb_output_char += 2;
+    }
     my_put_nbr(exp);
+    *nb_output_char += my_get_nb_length(exp);
 }
