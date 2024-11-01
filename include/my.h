@@ -28,7 +28,8 @@ enum my_printf {
     N,
     F_MIN,
     F_MAJ,
-    B
+    B,
+    STRING
 };
 
 void my_putchar(char c);
@@ -43,6 +44,7 @@ int my_getnbr(char const *str);
 int my_compute_power_rec(int nb, int p);
 int my_strdup(char const *src, char *dest);
 int my_get_nb_length(int nb);
+int my_strupcase(char *str);
 int get_next_char(const char *format, int *index);
 int get_absolute_value_of_int(int nb);
 int my_is_a_flag(char actual_char);
@@ -68,6 +70,12 @@ void apply_zero_plus_hashtag_flag(const char *format, int *index,
     int *nb_output_char, int len);
 void apply_minus_flag(const char *format, int *index,
     int *nb_output_char, int len);
+void apply_good_space_for_string_specifier(int
+    flag_minus, int flag_plus, int flag_space, int nb_char_printed);
+void apply_minus_and_zero_flags_for_string_specifier(int
+    **flags_arr, char *result);
+void apply_plus_and_space_flags_for_string_specifier(int
+    flag_space, int flag_plus);
 int my_printf(const char *restrict format, ...);
 int compute(int *nb_output_char,
     const char *format, int index, va_list *list);
@@ -101,6 +109,8 @@ void print_e_min(va_list *list, int *nb_output_char,
 void print_e_maj(va_list *list, int *nb_output_char,
     int *index, const char *format);
 void print_binary(va_list *list, int *nb_output_char,
+    int *index, const char *format);
+void print_strupcase(va_list *list, int *nb_output_char,
     int *index, const char *format);
 long count_power(double nb);
 void ten_power_write(long power, int positive,

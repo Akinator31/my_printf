@@ -27,6 +27,7 @@ static const format_specifier_t specifier_arr[] = {
     {'e', &print_e_min, 15},
     {'E', &print_e_maj, 16},
     {'b', &print_binary, 17},
+    {'S', &print_strupcase, 18},
     {'?', NULL, 84}
 };
 

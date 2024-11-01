@@ -235,3 +235,15 @@ Test(my_compute_power_rec, p_of_zero)
 
     cr_assert_eq(my_func, result);
 }
+
+Test(my_printf, solo_binary_specifier, .init = redirect_all_std)
+{
+    my_printf("%b\n", 34);
+    cr_assert_stdout_eq_str("100010\n");
+}
+
+Test(my_printf, binary_specifier_in_a_string, .init = redirect_all_std)
+{
+    my_printf("test : %b\n", 45);
+    cr_assert_stdout_eq_str("test : 101101\n");
+}
